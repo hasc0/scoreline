@@ -1,3 +1,8 @@
+use std::env;
+
+mod deserialize;
+mod request;
+
 fn main() {
-    println!("Hello, world!");
+    let args: Vec<String> = env::args().collect();
 }
