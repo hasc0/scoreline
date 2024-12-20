@@ -1,7 +1,8 @@
 // request module defined in ./main.rs
 
-mod nba;
+use crate::deserialize::{nba_handler, nfl_handler, nhl_handler};
+use crate::utils::RequestInfo;
 
-mod nfl;
-
-mod nhl;
+pub fn parse_request(request: RequestInfo) {
+    return;
+}

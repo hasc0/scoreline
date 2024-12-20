@@ -1,6 +1,5 @@
 # scoreline
-## a command line sports stats utility
-
-__Heavily WIP__
+## Introduction
+This project is currently **heavily** WIP.
 
 Built to learn more Rust!
