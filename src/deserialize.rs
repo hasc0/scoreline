@@ -1,5 +1,8 @@
 // deserialize module defined in ./main.rs
 
+mod mlb;
+pub use mlb::mlb_handler;
+
 mod nba;
 pub use nba::nba_handler;
 
