@@ -61,22 +61,16 @@ pub fn parse_args(args: Vec<String>) -> Option<RequestInfo> {
     }
 
     if args.len() > 3 {
-        if parse_team(&mut request, args[1].as_str(), args[3].as_str()) == false {
-            println!("Enter a valid team.");
+        if !parse_team(&mut request, args[1].as_str(), args[3].as_str()) && !parse_date(&mut request, args[3].as_str()) {
+            println!("Enter a valid team and/or date.");
             return None;
         }
     }
 
-    // TODO: ensure provided date does not fall after current date and adjust date for timezone
     if args.len() > 4 {
-        let date: ParseResult<NaiveDate> = NaiveDate::parse_from_str(&args[4], "%m/%d/%Y");
-
-        match date {
-            Ok(date) => request.date = Some(date),
-            Err(..) => {
-                println!("Date must be entered in MM/DD/YYYY format.");
-                return None;
-            }
+        if !parse_date(&mut request, args[4].as_str()) {
+            println!("Date must be entered in MM/DD/YYYY format.");
+            return None;
         }
     }
 
@@ -89,7 +83,7 @@ pub fn parse_args(args: Vec<String>) -> Option<RequestInfo> {
 }
 
 fn parse_team(request: &mut RequestInfo, league: &str, team: &str) -> bool {
-    let mut team_info: Option<Team> = None;
+    let team_info: Option<Team>;
 
     if league == "mlb" {
         let mlb_teams: HashMap<&str, Team> = mlb_teams();
@@ -110,6 +104,20 @@ fn parse_team(request: &mut RequestInfo, league: &str, team: &str) -> bool {
     match team_info {
         Some(team) =>  request.team = Some(team),
         None => return false,
+    }
+
+    return true;
+}
+
+// TODO: ensure provided date does not fall after current date and adjust date for timezone
+fn parse_date(request: &mut RequestInfo, date: &str) -> bool {
+    let date: ParseResult<NaiveDate> = NaiveDate::parse_from_str(date, "%m/%d/%Y");
+
+    match date {
+        Ok(date) => request.date = Some(date),
+        Err(..) => {
+            return false;
+        }
     }
 
     return true;
