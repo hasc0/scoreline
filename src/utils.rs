@@ -3,6 +3,7 @@
 use std::collections::HashMap;
 
 use chrono::{NaiveDate, ParseResult};
+use chrono::prelude::Local;
 
 use crate::teams::{mlb_teams, nba_teams, nfl_teams, nhl_teams, Team};
 
@@ -98,6 +99,7 @@ fn parse_team(request: &mut RequestInfo, league: &str, team: &str) -> bool {
         let nhl_teams: HashMap<&str, Team> = nhl_teams();
         team_info = nhl_teams.get(team).cloned();
     } else {
+        println!("Enter a valid league.");
         return false;
     }
 
@@ -109,15 +111,23 @@ fn parse_team(request: &mut RequestInfo, league: &str, team: &str) -> bool {
     return true;
 }
 
-// TODO: ensure provided date does not fall after current date and adjust date for timezone
 fn parse_date(request: &mut RequestInfo, date: &str) -> bool {
     let date: ParseResult<NaiveDate> = NaiveDate::parse_from_str(date, "%m/%d/%Y");
+    let curr_date: NaiveDate = Local::now().naive_local().into();
+    let user_date: NaiveDate;
 
     match date {
-        Ok(date) => request.date = Some(date),
+        Ok(date) => user_date = date,
         Err(..) => {
             return false;
         }
+    }
+
+    if user_date > curr_date {
+        println!("Entered must not exceed the current date.");
+        return false;
+    } else {
+        request.date = Some(user_date);
     }
 
     return true;

@@ -1,5 +1,7 @@
 // nba module defined in ../deserialize.rs
 
-pub fn mlb_handler() {
+use crate::teams::Team;
+
+pub fn mlb_handler(response: String, team: Option<Team>) {
     return;
 }
