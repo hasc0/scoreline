@@ -2,6 +2,7 @@
 
 use std::collections::HashMap;
 
+#[derive(Clone)]
 pub struct Team {
     team: String,
     city: String,

@@ -1,6 +1,8 @@
 // utils module defined in ./main.rs
 
-use chrono;
+use std::collections::HashMap;
+
+use chrono::{NaiveDate, ParseResult, ParseError};
 
 use crate::teams::{mlb_teams, nba_teams, nfl_teams, nhl_teams, Team};
 
@@ -8,8 +10,8 @@ use crate::teams::{mlb_teams, nba_teams, nfl_teams, nhl_teams, Team};
 pub struct RequestInfo {
     league: Option<League>,
     stat: Option<Stat>,
-    date: Option<String>,
     team: Option<Team>,
+    date: Option<NaiveDate>,
 }
 
 pub enum League {
@@ -57,12 +59,23 @@ pub fn parse_args(args: Vec<String>) -> Option<RequestInfo> {
     }
 
     if args.len() > 3 {
-        if parse_team(&request, &args[2], &args[3]) == false {
+        if parse_team(&mut request, &args[2], &args[3]) == false {
+            println!("Enter a valid team.");
             return None;
         }
     }
 
-    if args.len() > 4 {}
+    if args.len() > 4 {
+        let date: ParseResult<NaiveDate> = NaiveDate::parse_from_str(&args[4], "%m/%d/%Y");
+
+        match date {
+            Ok(date) => request.date = Some(date),
+            Err(..) => {
+                println!("Date must be entered in MM/DD/YYYY format.");
+                return None;
+            }
+        }
+    }
 
     if args.len() > 5 {
         println!("Too many arguments supplied.");
@@ -72,6 +85,29 @@ pub fn parse_args(args: Vec<String>) -> Option<RequestInfo> {
     return Some(request);
 }
 
-fn parse_team(request: &RequestInfo, league: &str, team: &str) -> bool {
+fn parse_team(request: &mut RequestInfo, league: &str, team: &str) -> bool {
+    let mut team_info: Option<Team> = None;
+
+    if league == "mlb" {
+        let mlb_teams: HashMap<String, Team> = mlb_teams();
+        team_info = mlb_teams.get(team).cloned();
+    } else if league == "nba" {
+        let nba_teams: HashMap<String, Team> = nba_teams();
+        team_info = nba_teams.get(team).cloned();
+    } else if league == "nfl" {
+        let nfl_teams: HashMap<String, Team> = nfl_teams();
+        team_info = nfl_teams.get(team).cloned();
+    } else if league == "nhl" {
+        let nhl_teams: HashMap<String, Team> = nfl_teams();
+        team_info = nhl_teams.get(team).cloned();
+    } else {
+        return false;
+    }
+
+    match team_info {
+        Some(team) =>  request.team = Some(team),
+        None => return false,
+    }
+
     return true;
 }
