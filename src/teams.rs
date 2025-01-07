@@ -2,18 +2,18 @@
 
 use std::collections::HashMap;
 
-#[derive(Clone)]
+#[derive(Debug, Clone)]
 pub struct Team {
     team: String,
     city: String,
     slug: String,
 }
 
-pub fn mlb_teams() -> HashMap<String, Team> {
-    let mut teams: HashMap<String, Team> = HashMap::new();
+pub fn mlb_teams() -> HashMap<&'static str, Team> {
+    let mut teams: HashMap<&'static str, Team> = HashMap::new();
 
     teams.insert(
-        String::from("angels"),
+        "angels",
         Team {
             team: String::from("Angels"),
             city: String::from("Los Angeles"),
@@ -22,7 +22,7 @@ pub fn mlb_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("astros"),
+        "astros",
         Team {
             team: String::from("Astros"),
             city: String::from("Houston"),
@@ -31,7 +31,7 @@ pub fn mlb_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("athletics"),
+        "athletics",
         Team {
             team: String::from("Athletics"),
             city: String::from("Oakland"),
@@ -40,7 +40,7 @@ pub fn mlb_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("bluejays"),
+        "bluejays",
         Team {
             team: String::from("Blue Jays"),
             city: String::from("Toronto"),
@@ -49,7 +49,7 @@ pub fn mlb_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("braves"),
+        "braves",
         Team {
             team: String::from("Braves"),
             city: String::from("Atlanta"),
@@ -58,7 +58,7 @@ pub fn mlb_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("brewers"),
+        "brewers",
         Team {
             team: String::from("Brewers"),
             city: String::from("Milwaukee"),
@@ -67,7 +67,7 @@ pub fn mlb_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("cardinals"),
+        "cardinals",
         Team {
             team: String::from("Cardinals"),
             city: String::from("St. Louis"),
@@ -76,7 +76,7 @@ pub fn mlb_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("cubs"),
+        "cubs",
         Team {
             team: String::from("Cubs"),
             city: String::from("Chicago"),
@@ -85,7 +85,7 @@ pub fn mlb_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("diamondbacks"),
+        "diamondbacks",
         Team {
             team: String::from("Diamondbacks"),
             city: String::from("Arizona"),
@@ -94,7 +94,7 @@ pub fn mlb_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("dodgers"),
+        "dodgers",
         Team {
             team: String::from("Dodgers"),
             city: String::from("Los Angeles"),
@@ -103,7 +103,7 @@ pub fn mlb_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("giants"),
+        "giants",
         Team {
             team: String::from("Giants"),
             city: String::from("San Francisco"),
@@ -112,7 +112,7 @@ pub fn mlb_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("guardians"),
+        "guardians",
         Team {
             team: String::from("Guardians"),
             city: String::from("Cleveland"),
@@ -121,7 +121,7 @@ pub fn mlb_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("mariners"),
+        "mariners",
         Team {
             team: String::from("Mariners"),
             city: String::from("Seattle"),
@@ -130,7 +130,7 @@ pub fn mlb_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("marlins"),
+        "marlins",
         Team {
             team: String::from("Marlins"),
             city: String::from("Miami"),
@@ -139,7 +139,7 @@ pub fn mlb_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("mets"),
+        "mets",
         Team {
             team: String::from("Mets"),
             city: String::from("New York"),
@@ -148,7 +148,7 @@ pub fn mlb_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("nationals"),
+        "nationals",
         Team {
             team: String::from("Nationals"),
             city: String::from("Washington"),
@@ -157,7 +157,7 @@ pub fn mlb_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("orioles"),
+        "orioles",
         Team {
             team: String::from("Orioles"),
             city: String::from("Baltimore"),
@@ -166,7 +166,7 @@ pub fn mlb_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("padres"),
+        "padres",
         Team {
             team: String::from("Padres"),
             city: String::from("San Diego"),
@@ -175,7 +175,7 @@ pub fn mlb_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("phillies"),
+        "phillies",
         Team {
             team: String::from("Phillies"),
             city: String::from("Philadelphia"),
@@ -184,7 +184,7 @@ pub fn mlb_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("pirates"),
+        "pirates",
         Team {
             team: String::from("Pirates"),
             city: String::from("Pittsburgh"),
@@ -193,7 +193,7 @@ pub fn mlb_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("rangers"),
+        "rangers",
         Team {
             team: String::from("Rangers"),
             city: String::from("Texas"),
@@ -202,7 +202,7 @@ pub fn mlb_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("rays"),
+        "rays",
         Team {
             team: String::from("Rays"),
             city: String::from("Tampa Bay"),
@@ -211,7 +211,7 @@ pub fn mlb_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("redsox"),
+        "redsox",
         Team {
             team: String::from("Red Sox"),
             city: String::from("Boston"),
@@ -220,7 +220,7 @@ pub fn mlb_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("reds"),
+        "reds",
         Team {
             team: String::from("Reds"),
             city: String::from("Cincinnati"),
@@ -229,7 +229,7 @@ pub fn mlb_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("rockies"),
+        "rockies",
         Team {
             team: String::from("Rockies"),
             city: String::from("Colorado"),
@@ -238,7 +238,7 @@ pub fn mlb_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("royals"),
+        "royals",
         Team {
             team: String::from("Royals"),
             city: String::from("Kansas City"),
@@ -247,7 +247,7 @@ pub fn mlb_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("tigers"),
+        "tigers",
         Team {
             team: String::from("Tigers"),
             city: String::from("Detroit"),
@@ -256,7 +256,7 @@ pub fn mlb_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("twins"),
+        "twins",
         Team {
             team: String::from("Twins"),
             city: String::from("Minnesota"),
@@ -265,7 +265,7 @@ pub fn mlb_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("whitesox"),
+        "whitesox",
         Team {
             team: String::from("White Sox"),
             city: String::from("Chicago"),
@@ -274,7 +274,7 @@ pub fn mlb_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("yankees"),
+        "yankees",
         Team {
             team: String::from("Yankees"),
             city: String::from("New York"),
@@ -285,11 +285,11 @@ pub fn mlb_teams() -> HashMap<String, Team> {
     return teams;
 }
 
-pub fn nba_teams() -> HashMap<String, Team> {
-    let mut teams: HashMap<String, Team> = HashMap::new();
+pub fn nba_teams() -> HashMap<&'static str, Team> {
+    let mut teams: HashMap<&'static str, Team> = HashMap::new();
 
     teams.insert(
-        String::from("76ers"),
+        "76ers",
         Team {
             team: String::from("76ers"),
             city: String::from("Philadelphia"),
@@ -298,7 +298,7 @@ pub fn nba_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("bucks"),
+        "bucks",
         Team {
             team: String::from("Bucks"),
             city: String::from("Milwaukee"),
@@ -307,7 +307,7 @@ pub fn nba_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("bulls"),
+        "bulls",
         Team {
             team: String::from("Bulls"),
             city: String::from("Chicago"),
@@ -316,7 +316,7 @@ pub fn nba_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("cavaliers"),
+        "cavaliers",
         Team {
             team: String::from("Cavaliers"),
             city: String::from("Cleveland"),
@@ -325,7 +325,7 @@ pub fn nba_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("celtics"),
+        "celtics",
         Team {
             team: String::from("Celtics"),
             city: String::from("Boston"),
@@ -334,7 +334,7 @@ pub fn nba_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("clippers"),
+        "clippers",
         Team {
             team: String::from("Clippers"),
             city: String::from("Los Angeles"),
@@ -343,7 +343,7 @@ pub fn nba_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("grizzlies"),
+        "grizzlies",
         Team {
             team: String::from("Grizzlies"),
             city: String::from("Memphis"),
@@ -352,7 +352,7 @@ pub fn nba_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("hawks"),
+        "hawks",
         Team {
             team: String::from("Hawks"),
             city: String::from("Atlanta"),
@@ -361,7 +361,7 @@ pub fn nba_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("heat"),
+        "heat",
         Team {
             team: String::from("Heat"),
             city: String::from("Miami"),
@@ -370,7 +370,7 @@ pub fn nba_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("hornets"),
+        "hornets",
         Team {
             team: String::from("Hornets"),
             city: String::from("Charlotte"),
@@ -379,7 +379,7 @@ pub fn nba_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("jazz"),
+        "jazz",
         Team {
             team: String::from("Jazz"),
             city: String::from("Utah"),
@@ -388,7 +388,7 @@ pub fn nba_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("kings"),
+        "kings",
         Team {
             team: String::from("Kings"),
             city: String::from("Sacramento"),
@@ -397,7 +397,7 @@ pub fn nba_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("knicks"),
+        "knicks",
         Team {
             team: String::from("Knicks"),
             city: String::from("New York"),
@@ -406,7 +406,7 @@ pub fn nba_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("lakers"),
+        "lakers",
         Team {
             team: String::from("Lakers"),
             city: String::from("Los Angeles"),
@@ -415,7 +415,7 @@ pub fn nba_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("magic"),
+        "magic",
         Team {
             team: String::from("Magic"),
             city: String::from("Orlando"),
@@ -424,7 +424,7 @@ pub fn nba_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("mavericks"),
+        "mavericks",
         Team {
             team: String::from("Mavericks"),
             city: String::from("Dallas"),
@@ -433,7 +433,7 @@ pub fn nba_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("nets"),
+        "nets",
         Team {
             team: String::from("Nets"),
             city: String::from("Brooklyn"),
@@ -442,7 +442,7 @@ pub fn nba_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("nuggets"),
+        "nuggets",
         Team {
             team: String::from("Nuggets"),
             city: String::from("Denver"),
@@ -451,7 +451,7 @@ pub fn nba_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("pacers"),
+        "pacers",
         Team {
             team: String::from("Pacers"),
             city: String::from("Indiana"),
@@ -460,7 +460,7 @@ pub fn nba_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("pelicans"),
+        "pelicans",
         Team {
             team: String::from("Pelicans"),
             city: String::from("New Orleans"),
@@ -469,7 +469,7 @@ pub fn nba_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("pistons"),
+        "pistons",
         Team {
             team: String::from("Pistons"),
             city: String::from("Detroit"),
@@ -478,7 +478,7 @@ pub fn nba_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("raptors"),
+        "raptors",
         Team {
             team: String::from("Raptors"),
             city: String::from("Toronto"),
@@ -487,7 +487,7 @@ pub fn nba_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("rockets"),
+        "rockets",
         Team {
             team: String::from("Rockets"),
             city: String::from("Houston"),
@@ -496,7 +496,7 @@ pub fn nba_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("spurs"),
+        "spurs",
         Team {
             team: String::from("Spurs"),
             city: String::from("San Antonio"),
@@ -505,7 +505,7 @@ pub fn nba_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("suns"),
+        "suns",
         Team {
             team: String::from("Suns"),
             city: String::from("Phoenix"),
@@ -514,7 +514,7 @@ pub fn nba_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("thunder"),
+        "thunder",
         Team {
             team: String::from("Thunder"),
             city: String::from("Oklahoma City"),
@@ -523,7 +523,7 @@ pub fn nba_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("timberwolves"),
+        "timberwolves",
         Team {
             team: String::from("Timberwolves"),
             city: String::from("Minnesota"),
@@ -532,7 +532,7 @@ pub fn nba_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("trailblazers"),
+        "trailblazers",
         Team {
             team: String::from("Trail Blazers"),
             city: String::from("Portland"),
@@ -541,7 +541,7 @@ pub fn nba_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("warriors"),
+        "warriors",
         Team {
             team: String::from("Warriors"),
             city: String::from("Golden State"),
@@ -550,7 +550,7 @@ pub fn nba_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("wizards"),
+        "wizards",
         Team {
             team: String::from("Wizards"),
             city: String::from("Washington"),
@@ -561,11 +561,11 @@ pub fn nba_teams() -> HashMap<String, Team> {
     return teams;
 }
 
-pub fn nfl_teams() -> HashMap<String, Team> {
-    let mut teams: HashMap<String, Team> = HashMap::new();
+pub fn nfl_teams() -> HashMap<&'static str, Team> {
+    let mut teams: HashMap<&'static str, Team> = HashMap::new();
 
     teams.insert(
-        String::from("49ers"),
+        "49ers",
         Team {
             team: String::from("49ers"),
             city: String::from("San Francisco"),
@@ -574,7 +574,7 @@ pub fn nfl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("bears"),
+        "bears",
         Team {
             team: String::from("Bears"),
             city: String::from("Chicago"),
@@ -583,7 +583,7 @@ pub fn nfl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("bengals"),
+        "bengals",
         Team {
             team: String::from("Bengals"),
             city: String::from("Cincinnati"),
@@ -592,7 +592,7 @@ pub fn nfl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("bills"),
+        "bills",
         Team {
             team: String::from("Bills"),
             city: String::from("Buffalo"),
@@ -601,7 +601,7 @@ pub fn nfl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("broncos"),
+        "broncos",
         Team {
             team: String::from("Broncos"),
             city: String::from("Denver"),
@@ -610,7 +610,7 @@ pub fn nfl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("browns"),
+        "browns",
         Team {
             team: String::from("Browns"),
             city: String::from("Cleveland"),
@@ -619,7 +619,7 @@ pub fn nfl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("buccaneers"),
+        "buccaneers",
         Team {
             team: String::from("Buccaneers"),
             city: String::from("Tampa Bay"),
@@ -628,7 +628,7 @@ pub fn nfl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("cardinals"),
+        "cardinals",
         Team {
             team: String::from("Cardinals"),
             city: String::from("Arizona"),
@@ -637,7 +637,7 @@ pub fn nfl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("chargers"),
+        "chargers",
         Team {
             team: String::from("Chargers"),
             city: String::from("Los Angeles"),
@@ -646,7 +646,7 @@ pub fn nfl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("chiefs"),
+        "chiefs",
         Team {
             team: String::from("Chiefs"),
             city: String::from("Kansas City"),
@@ -655,7 +655,7 @@ pub fn nfl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("colts"),
+        "colts",
         Team {
             team: String::from("Colts"),
             city: String::from("Indianapolis"),
@@ -664,7 +664,7 @@ pub fn nfl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("commanders"),
+        "commanders",
         Team {
             team: String::from("Commanders"),
             city: String::from("Washington"),
@@ -673,7 +673,7 @@ pub fn nfl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("cowboys"),
+        "cowboys",
         Team {
             team: String::from("Cowboys"),
             city: String::from("Dallas"),
@@ -682,7 +682,7 @@ pub fn nfl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("dolphins"),
+        "dolphins",
         Team {
             team: String::from("Dolphins"),
             city: String::from("Miami"),
@@ -691,7 +691,7 @@ pub fn nfl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("eagles"),
+        "eagles",
         Team {
             team: String::from("Eagles"),
             city: String::from("Philadelphia"),
@@ -700,7 +700,7 @@ pub fn nfl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("falcons"),
+        "falcons",
         Team {
             team: String::from("Falcons"),
             city: String::from("Atlanta"),
@@ -709,7 +709,7 @@ pub fn nfl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("giants"),
+        "giants",
         Team {
             team: String::from("Giants"),
             city: String::from("New York"),
@@ -718,7 +718,7 @@ pub fn nfl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("jaguars"),
+        "jaguars",
         Team {
             team: String::from("Jaguars"),
             city: String::from("Jacksonville"),
@@ -727,7 +727,7 @@ pub fn nfl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("jets"),
+        "jets",
         Team {
             team: String::from("Jets"),
             city: String::from("New York"),
@@ -736,7 +736,7 @@ pub fn nfl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("lions"),
+        "lions",
         Team {
             team: String::from("Lions"),
             city: String::from("Detroit"),
@@ -745,7 +745,7 @@ pub fn nfl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("packers"),
+        "packers",
         Team {
             team: String::from("Packers"),
             city: String::from("Green Bay"),
@@ -754,7 +754,7 @@ pub fn nfl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("panthers"),
+        "panthers",
         Team {
             team: String::from("Panthers"),
             city: String::from("Carolina"),
@@ -763,7 +763,7 @@ pub fn nfl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("patriots"),
+        "patriots",
         Team {
             team: String::from("Patriots"),
             city: String::from("New England"),
@@ -772,7 +772,7 @@ pub fn nfl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("raiders"),
+        "raiders",
         Team {
             team: String::from("Raiders"),
             city: String::from("Las Vegas"),
@@ -781,7 +781,7 @@ pub fn nfl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("rams"),
+        "rams",
         Team {
             team: String::from("Rams"),
             city: String::from("Los Angeles"),
@@ -790,7 +790,7 @@ pub fn nfl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("ravens"),
+        "ravens",
         Team {
             team: String::from("Ravens"),
             city: String::from("Ravens"),
@@ -799,7 +799,7 @@ pub fn nfl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("saints"),
+        "saints",
         Team {
             team: String::from("Saints"),
             city: String::from("New Orleans"),
@@ -808,7 +808,7 @@ pub fn nfl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("seahawks"),
+        "seahawks",
         Team {
             team: String::from("Seahawks"),
             city: String::from("Seattle"),
@@ -817,7 +817,7 @@ pub fn nfl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("steelers"),
+        "steelers",
         Team {
             team: String::from("Steelers"),
             city: String::from("Pittsburgh"),
@@ -826,7 +826,7 @@ pub fn nfl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("texans"),
+        "texans",
         Team {
             team: String::from("Texans"),
             city: String::from("Houston"),
@@ -835,7 +835,7 @@ pub fn nfl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("titans"),
+        "titans",
         Team {
             team: String::from("Titans"),
             city: String::from("Tennessee"),
@@ -844,7 +844,7 @@ pub fn nfl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("vikings"),
+        "vikings",
         Team {
             team: String::from("Vikings"),
             city: String::from("Minnesota"),
@@ -855,11 +855,11 @@ pub fn nfl_teams() -> HashMap<String, Team> {
     return teams;
 }
 
-pub fn nhl_teams() -> HashMap<String, Team> {
-    let mut teams: HashMap<String, Team> = HashMap::new();
+pub fn nhl_teams() -> HashMap<&'static str, Team> {
+    let mut teams: HashMap<&'static str, Team> = HashMap::new();
 
     teams.insert(
-        String::from("avalanche"),
+        "avalanche",
         Team {
             team: String::from("Avalanche"),
             city: String::from("Colorado"),
@@ -868,7 +868,7 @@ pub fn nhl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("blackhawks"),
+        "blackhawks",
         Team {
             team: String::from("Blackhawks"),
             city: String::from("Chicago"),
@@ -877,7 +877,7 @@ pub fn nhl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("bluejackets"),
+        "bluejackets",
         Team {
             team: String::from("Blue Jackets"),
             city: String::from("Columbus"),
@@ -886,7 +886,7 @@ pub fn nhl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("blues"),
+        "blues",
         Team {
             team: String::from("Blues"),
             city: String::from("St. Louis"),
@@ -895,7 +895,7 @@ pub fn nhl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("bruins"),
+        "bruins",
         Team {
             team: String::from("Bruins"),
             city: String::from("Boston"),
@@ -904,7 +904,7 @@ pub fn nhl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("canadiens"),
+        "canadiens",
         Team {
             team: String::from("Canadiens"),
             city: String::from("Montreal"),
@@ -913,7 +913,7 @@ pub fn nhl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("canucks"),
+        "canucks",
         Team {
             team: String::from("Canucks"),
             city: String::from("Vancouver"),
@@ -922,7 +922,7 @@ pub fn nhl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("capitals"),
+        "capitals",
         Team {
             team: String::from("Capitals"),
             city: String::from("Washington"),
@@ -931,7 +931,7 @@ pub fn nhl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("devils"),
+        "devils",
         Team {
             team: String::from("Devils"),
             city: String::from("New Jersey"),
@@ -940,7 +940,7 @@ pub fn nhl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("ducks"),
+        "ducks",
         Team {
             team: String::from("Ducks"),
             city: String::from("Anaheim"),
@@ -949,7 +949,7 @@ pub fn nhl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("flames"),
+        "flames",
         Team {
             team: String::from("Flames"),
             city: String::from("Calgary"),
@@ -958,7 +958,7 @@ pub fn nhl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("flyers"),
+        "flyers",
         Team {
             team: String::from("Flyers"),
             city: String::from("Philadelphia"),
@@ -967,7 +967,7 @@ pub fn nhl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("goldenknights"),
+        "goldenknights",
         Team {
             team: String::from("Golden Knights"),
             city: String::from("Las Vegas"),
@@ -976,7 +976,7 @@ pub fn nhl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("hurricanes"),
+        "hurricanes",
         Team {
             team: String::from("Hurricanes"),
             city: String::from("Carolina"),
@@ -985,7 +985,7 @@ pub fn nhl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("islanders"),
+        "islanders",
         Team {
             team: String::from("Islanders"),
             city: String::from("New York"),
@@ -994,7 +994,7 @@ pub fn nhl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("jets"),
+        "jets",
         Team {
             team: String::from("Jets"),
             city: String::from("Winnipeg"),
@@ -1003,7 +1003,7 @@ pub fn nhl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("kings"),
+        "kings",
         Team {
             team: String::from("Kings"),
             city: String::from("Los Angeles"),
@@ -1012,7 +1012,7 @@ pub fn nhl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("kraken"),
+        "kraken",
         Team {
             team: String::from("Kraken"),
             city: String::from("Seattle"),
@@ -1021,7 +1021,7 @@ pub fn nhl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("lightning"),
+        "lightning",
         Team {
             team: String::from("Lightning"),
             city: String::from("Tampa Bay"),
@@ -1030,7 +1030,7 @@ pub fn nhl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("mapleleafs"),
+        "mapleleafs",
         Team {
             team: String::from("Maple Leafs"),
             city: String::from("Toronto"),
@@ -1039,7 +1039,7 @@ pub fn nhl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("oilers"),
+        "oilers",
         Team {
             team: String::from("Oilers"),
             city: String::from("Edmonton"),
@@ -1048,7 +1048,7 @@ pub fn nhl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("panthers"),
+        "panthers",
         Team {
             team: String::from("Panthers"),
             city: String::from("Florida"),
@@ -1057,7 +1057,7 @@ pub fn nhl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("penguins"),
+        "penguins",
         Team {
             team: String::from("Penguins"),
             city: String::from("Pittsburgh"),
@@ -1066,7 +1066,7 @@ pub fn nhl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("predators"),
+        "predators",
         Team {
             team: String::from("Predators"),
             city: String::from("Nashville"),
@@ -1075,7 +1075,7 @@ pub fn nhl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("rangers"),
+        "rangers",
         Team {
             team: String::from("Rangers"),
             city: String::from("New York"),
@@ -1084,7 +1084,7 @@ pub fn nhl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("redwings"),
+        "redwings",
         Team {
             team: String::from("Red Wings"),
             city: String::from("Detroit"),
@@ -1093,7 +1093,7 @@ pub fn nhl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("sabres"),
+        "sabres",
         Team {
             team: String::from("Sabres"),
             city: String::from("Buffalo"),
@@ -1102,7 +1102,7 @@ pub fn nhl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("senators"),
+        "senators",
         Team {
             team: String::from("Senators"),
             city: String::from("Ottawa"),
@@ -1111,7 +1111,7 @@ pub fn nhl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("sharks"),
+        "sharks",
         Team {
             team: String::from("Sharks"),
             city: String::from("San Jose"),
@@ -1120,7 +1120,7 @@ pub fn nhl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("stars"),
+        "stars",
         Team {
             team: String::from("Stars"),
             city: String::from("Dallas"),
@@ -1129,7 +1129,7 @@ pub fn nhl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("utahhockeyclub"),
+        "utahhockeyclub",
         Team {
             team: String::from("Utah Hockey Club"),
             city: String::from("Utah"),
@@ -1138,7 +1138,7 @@ pub fn nhl_teams() -> HashMap<String, Team> {
     );
 
     teams.insert(
-        String::from("wild"),
+        "wild",
         Team {
             team: String::from("Wild"),
             city: String::from("Minnesota"),
