@@ -1,4 +1,4 @@
-// deserialize module defined in ./main.rs
+// handlers module defined in ./main.rs
 
 mod mlb;
 pub use mlb::mlb_handler;

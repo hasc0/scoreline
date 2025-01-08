@@ -8,7 +8,7 @@ mod teams;
 mod request;
 use request::parse_request;
 
-mod deserialize;
+mod handlers;
 
 fn main() {
     let args: Vec<String> = env::args().collect();

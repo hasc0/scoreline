@@ -4,9 +4,9 @@ use std::collections::HashMap;
 
 #[derive(Debug, Clone)]
 pub struct Team {
-    team: String,
-    city: String,
-    slug: String,
+    pub team: String,
+    pub city: String,
+    pub slug: String,
 }
 
 pub fn mlb_teams() -> HashMap<&'static str, Team> {

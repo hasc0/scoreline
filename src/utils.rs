@@ -15,7 +15,7 @@ pub struct RequestInfo {
     pub date: Option<NaiveDate>,
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub enum League {
     MLB,
     NBA,
@@ -23,10 +23,10 @@ pub enum League {
     NHL,
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub enum Stat {
     Score,
-    Record,
+    // Record,
 }
 
 pub fn parse_args(args: Vec<String>) -> Option<RequestInfo> {
@@ -54,9 +54,9 @@ pub fn parse_args(args: Vec<String>) -> Option<RequestInfo> {
 
         match args[2].as_str() {
             "score" => request.stat = Some(Stat::Score),
-            "record" => request.stat = Some(Stat::Record),
+            // "record" => request.stat = Some(Stat::Record),
             _ => {
-                println!("Only score and record are currently supported.");
+                println!("Only score is currently supported.");
             }
         }
     }
@@ -111,6 +111,7 @@ fn parse_team(request: &mut RequestInfo, league: &str, team: &str) -> bool {
     return true;
 }
 
+// TODO: Add default date entry, remove the need for Option<NaiveDate>
 fn parse_date(request: &mut RequestInfo, date: &str) -> bool {
     let date: ParseResult<NaiveDate> = NaiveDate::parse_from_str(date, "%m/%d/%Y");
     let curr_date: NaiveDate = Local::now().naive_local().into();
