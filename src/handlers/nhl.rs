@@ -7,9 +7,11 @@ use crate::RequestInfo;
 use crate::teams::Team;
 
 pub fn nhl_handler(response: Value, request: RequestInfo) {
-    println!("team: {}", request.team.unwrap().team);
-
-    let v: &Map<String, Value> = response.as_object().unwrap();
-    let w: Value = v.get("events").unwrap().clone();
-    println!("w: {}", w);
+    let response_obj: &Map<String, Value> = response.as_object().unwrap();
+    let events: Value = response_obj.get("events").unwrap().clone();
+    let events_obj: &Map<String, Value> = events.as_object().unwrap();
+    // for event in events_obj {
+    //     println!("event: {:?}", event);
+    // }
+    println!("isobj: {}", events.is_object());
 }
