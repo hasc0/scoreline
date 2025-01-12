@@ -16,8 +16,6 @@ fn main() {
     let request: Option<RequestInfo> = parse_args(args);
     match request {
         Some(req) => parse_request(req),
-        None => {
-            return;
-        }
+        None => return,
     }
 }

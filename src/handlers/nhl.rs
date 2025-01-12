@@ -1,17 +1,29 @@
 // nhl module defined in ../handlers.rs
 
-use ureq::serde_json;
-use ureq::serde_json::{Value, Map};
+use ureq::{Response, Error, serde_json};
+
+use serde::Deserialize;
 
 use crate::RequestInfo;
 use crate::teams::Team;
 
-pub fn nhl_handler(response: Value, request: RequestInfo) {
-    let response_obj: &Map<String, Value> = response.as_object().unwrap();
-    let events: Value = response_obj.get("events").unwrap().clone();
-    let events_obj: &Map<String, Value> = events.as_object().unwrap();
-    // for event in events_obj {
-    //     println!("event: {:?}", event);
-    // }
-    println!("isobj: {}", events.is_object());
+#[derive(Deserialize)]
+struct Events {
+
+}
+
+pub fn nhl_handler(response: Response, request: RequestInfo) -> Result<(), serde_json::Error> {
+    let response_de: Events;
+    match response.into_json() {
+        Ok(json) => response_de = json,
+        Err(err) => println!("An error occurred while deserializing the response: {}", err),
+    }
+
+    let header: String;
+    match request.team {
+        Some(team) => header = String::from(""),
+        None => header = String::from(""),
+    }
+
+    return Ok(())
 }
