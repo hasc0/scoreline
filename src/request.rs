@@ -1,11 +1,14 @@
 // request module defined in ./main.rs
 
+use std::io;
+
 use ureq::{get, Response, Error};
+use ureq::serde_json;
 use chrono::prelude::*;
 use chrono::NaiveDate;
 
 use crate::utils::{RequestInfo, League, Stat};
-use crate::handlers::{mlb_handler, nba_handler, nfl_handler, nhl_handler};
+use crate::handler::handle_response;
 
 pub fn parse_request(mut request: RequestInfo) {
     let league: League =  request.league.clone().unwrap();
@@ -42,21 +45,16 @@ pub fn parse_request(mut request: RequestInfo) {
         },
     }
 
-    let response: Response;
+    let response: Result<String, io::Error>;
     match request.stat.clone().unwrap() {
         Stat::Score => response = score_request(sport_str, league_str, date_str),
         // Stat::Record => response = record_request(sport_str, league_str, request.date),
     }
 
-    match league {
-        League::MLB => _ = mlb_handler(response, request),
-        League::NBA => _ = nba_handler(response, request),
-        League::NFL => _ = nfl_handler(response, request),
-        League::NHL => _ = nhl_handler(response, request),
-    }
+    _ = handle_response(response, request);
 }
 
-fn score_request(sport: &str, league: &str, date: String) -> Response {
+fn score_request(sport: &str, league: &str, date: String) -> Result<String, io::Error> {
     let date_split: Vec<&str> = date.split("-").collect();
     let date_url: String = format!("?dates={}{}{}", date_split[0], date_split[1], date_split[2]);
 
@@ -64,7 +62,7 @@ fn score_request(sport: &str, league: &str, date: String) -> Response {
     let response: Result<Response, Error>  = get(&req_url).call();
 
     match response {
-        Ok(res) => return res,
+        Ok(res) => return res.into_string(),
         Err(err) => panic!("An error occurred when making the request: {}", err),
     }
 }
